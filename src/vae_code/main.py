@@ -5,6 +5,10 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 import tensorflow as tf
 
 from config import VAEConfig
+from utilities.extract_generated_features import generate_csv
+from utilities.load_baseline_models import load_baseline_models
+from utilities.evaluate_vae_output import evaluate_vae_output_on_baseline_models
+from utilities.clear_output_directory import clear_output_directory
 from preprocessing import (
     MelPreprocessor,
     find_audio_files,
@@ -13,6 +17,7 @@ from preprocessing import (
 from vae import Encoder, Decoder
 from train_vae import train_vae
 from generate import (
+    # Reconstruction removed but might be cool to mess with in the future
     reconstruct_example,
     generate_example,
 )
@@ -99,7 +104,7 @@ def save_models(config: VAEConfig, encoder: Encoder, decoder: Decoder) -> None:
         else:
             print("Please enter y or n.")
     
-def load_existing_models() -> tuple[str, str, str]:
+def load_existing_vae_models() -> tuple[str, str, str]:
     valid_genres = [
         "blues",
         "classical",
@@ -205,8 +210,8 @@ def main():
         )
 
     else:
-    # Load existing model 
-        genre, encoder_path, decoder_path = load_existing_models()
+        # Load existing model 
+        genre, encoder_path, decoder_path = load_existing_vae_models()
         config.audio_dir = f"./data/Data/genres_original/{genre}"
         preprocessor = MelPreprocessor(config)
 
@@ -235,6 +240,8 @@ def main():
 
     os.makedirs(output_dir, exist_ok=True)
 
+    clear_output_directory(output_dir)
+
     for i in range(num_songs_to_generate):
         generate_example(
             decoder,
@@ -243,14 +250,16 @@ def main():
             f"{output_dir}/generated_{genre_name}_{i + 1}.wav"
         )
 
-    # reconstruct_example(
-    #     encoder,
-    #     decoder,
-    #     X[0],
-    #     preprocessor,
-    # )
+    print("Creating a features csv file for the generated songs...")
+    generate_csv(output_dir)
 
-    # TODO: Pass generated songs into basic models to evaluate vae output accuracy
+    baseline_models = load_baseline_models()
+
+    evaluate_vae_output_on_baseline_models(baseline_models, 
+                                           os.path.join(output_dir, "generated_features.csv"), 
+                                           genre_name, 
+                                           output_dir
+    )
 
     # Only ask to save model if it is not already saved
     if train_new_model:
