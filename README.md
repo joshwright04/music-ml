@@ -167,7 +167,19 @@ music-ml/
 
 ## How to Run
 
-### 1. Train Baseline Models
+### 1. Activate Your venv
+
+Activate your venv if not done already:
+
+For Windows: 
+
+venv\Scripts\activate
+
+For Mac/Linux: 
+
+source venv/bin/activate
+
+### 2. Train Baseline Models
 
 ```bash
 python src/baseline_models/run_baseline_models.py
@@ -181,7 +193,7 @@ This will:
 
 ---
 
-### 2. Run the VAE Pipeline
+### 3. Run the VAE Pipeline
 
 ```bash
 python src/vae_code/main.py
