@@ -1,10 +1,13 @@
-# virtual environments
-.venv/
-venv/
+generated_songs/*
+!generated_songs/.gitkeep
+
+saved_vae_models/*
+!saved_vae_models/.gitkeep
+
+saved_baseline_models/*
+!saved_baseline_models/.gitkeep
 
 __pycache__/
 *.pyc
-
-saved_vae_models/
-saved_baseline_models/
-generated_songs/
+venv/
+.venv/
