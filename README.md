@@ -182,9 +182,7 @@ python src/vae_code/main.py
 This will allow the user to:
 
 * Train a new VAE model OR load an existing saved model
-    * The repo contains no saved models originally
-       * Saved baseline ml models can be found as .pkl files in the directory `saved_baseline_models`
-       * Saved vae models can be found as .h5 files in the directory `saved_vae_models`
+    * The repo contains no saved models originally. Saved vae models can be found as .h5 files in the directory `saved_vae_models`
 * Select genre and training epochs
 * Generate new songs
 * Extract generated features
