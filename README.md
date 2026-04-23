@@ -104,7 +104,7 @@ soundfile
 joblib
 ```
 
-Install all dependencies with:
+Install all of the project dependencies with:
 
 ```bash
 pip install -r requirements.txt
@@ -158,8 +158,8 @@ python src/baseline_models/run_baseline_models.py
 This will:
 
 * Train Random Forest, Logistic Regression, and SVM
-* Save trained models into `saved_baseline_models/`
-* Generate model comparison plots
+* Automatically save trained models into `saved_baseline_models/`
+* Generate model comparison plots 
 
 ---
 
@@ -192,6 +192,8 @@ Expected files include:
 ```
 
 The dataset must be present for the project to run correctly.
+It can be found at:
+[https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification)
 
 ---
 
