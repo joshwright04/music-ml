@@ -85,33 +85,39 @@ A PNG bar chart is also generated showing baseline model accuracy on generated s
 
 ---
 
-## Dependencies
+## Setup
 
 Recommended Python Version:
 
-```text
 Python 3.10+
+
+A virtual environment is strongly recommended before installing dependencies.
+
+### Create and Activate a Virtual Environment
+
+For Windows:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
 ```
 
-Required Python packages:
+For Mac/Linux:
 
-```text
-tensorflow
-numpy
-pandas
-matplotlib
-scikit-learn
-librosa
-soundfile
-joblib
+```bash
+python3 -m venv venv
+source venv/bin/activate
 ```
 
-Install all of the project dependencies with:
+### Dependencies
+
+Once the virtual environment is activated, install dependencies with:
 
 ```bash
 pip install -r requirements.txt
 ```
-## Dataset
+
+### Dataset
 
 This project uses the GTZAN Genre Collection dataset. It is far too large to include in this repo.
 
