@@ -1,5 +1,7 @@
 # Music Genre Classification and Generation
 
+Gavin Petruzzi and Joshua Wright
+
 ## Project Overview
 
 This project explores music genre classification using both traditional machine learning models and a Variational Autoencoder (VAE) for music generation.
