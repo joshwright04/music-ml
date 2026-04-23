@@ -190,9 +190,3 @@ This will allow the user to:
 * Save generated graphs and optionally save model weights
 
 ---
-
-## Summary
-
-This project combines traditional machine learning classification with deep generative modeling to explore whether a VAE can generate new music samples that retain recognizable genre-specific characteristics.
-
-The final result is both a music generation system and a quantitative evaluation framework for measuring generation quality.
