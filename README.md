@@ -132,6 +132,17 @@ The dataset must be present for the project to run correctly.
 It can be found at:
 [https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification)
 
+Place the zip file from the above link into the `data` folder and unzip it. The final structure should look like this:
+
+```
+data/
+└── Data/
+    ├── genres_original/
+    ├── images_original/
+    ├── features_30_sec.csv
+    └── features_3_sec.csv
+```
+
 ---
 
 ## Project Structure
