@@ -1,4 +1,4 @@
-# Music Genre Classification and Generation
+# CSCI 4622 - Music Genre Classification and Generation
 
 Gavin Petruzzi and Joshua Wright
 
