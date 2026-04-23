@@ -109,10 +109,20 @@ Install all of the project dependencies with:
 ```bash
 pip install -r requirements.txt
 ```
+## Dataset
 
-Additional note:
+This project uses the GTZAN Genre Collection dataset. It is far too large to include in this repo.
 
-Some systems may require FFmpeg for audio loading depending on local setup.
+Expected files include:
+
+```text
+./data/Data/features_30_sec.csv
+./data/Data/genres_original/*
+```
+
+The dataset must be present for the project to run correctly.
+It can be found at:
+[https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification)
 
 ---
 
@@ -178,23 +188,6 @@ This will allow the user to:
 * Extract generated features
 * Evaluate generated songs using baseline models
 * Save generated graphs and optionally save model weights
-
----
-
-## Dataset
-
-This project uses the GTZAN Genre Collection dataset.
-
-Expected files include:
-
-```text
-./data/Data/features_30_sec.csv
-./data/Data/genres_original/*
-```
-
-The dataset must be present for the project to run correctly.
-It can be found at:
-[https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification)
 
 ---
 
