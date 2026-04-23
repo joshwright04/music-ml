@@ -91,7 +91,7 @@ Recommended Python Version:
 
 Python 3.10+
 
-A virtual environment is strongly recommended before installing dependencies.
+A virtual environment is strongly recommended for this project before installing dependencies.
 
 ### Create and Activate a Virtual Environment
 
