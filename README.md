@@ -166,8 +166,9 @@ music-ml/
 │       ├── generate.py
 │       └── utilities/
 │
-├── data/ (*data directory not a part of the repo - See description below for a link to download the GTZAN dataset*)
+├── data/ (*data directory initially empty - See description below for a link to download the GTZAN dataset*)
 │   └── Data/
+|        ...
 │
 ├── saved_baseline_models/ (*directory initially empty*)
 ├── saved_vae_models/ (*directory initially empty*)
