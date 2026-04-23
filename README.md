@@ -173,11 +173,15 @@ Activate your venv if not done already:
 
 For Windows: 
 
+```bash
 venv\Scripts\activate
+```
 
 For Mac/Linux: 
 
+```bash
 source venv/bin/activate
+```
 
 ### 2. Train Baseline Models
 
