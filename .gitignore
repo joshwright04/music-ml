@@ -1,3 +1,10 @@
 # virtual environments
 .venv/
 venv/
+
+__pycache__/
+*.pyc
+
+saved_vae_models/
+saved_baseline_models/
+generated_songs/
