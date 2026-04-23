@@ -1,4 +1,6 @@
-# Music Genre Classification and Generation
+# CSCI 4622 - Music Genre Classification and Generation
+
+Gavin Petruzzi and Joshua Wright
 
 ## Project Overview
 
@@ -182,17 +184,11 @@ python src/vae_code/main.py
 This will allow the user to:
 
 * Train a new VAE model OR load an existing saved model
-    * The repo contains no saved models originally. Saved vae models can be found as .h5 files in the directory `saved_vae_models`
+    * The repo contains no saved models originally. Saved vae models can be found as .h5 files in the directory `saved_vae_models/`
 * Select genre and training epochs
-* Generate new songs
+* Generate new 3 second song snippets  
 * Extract generated features
 * Evaluate generated songs using baseline models
 * Save generated graphs and optionally save model weights
 
 ---
-
-## Summary
-
-This project combines traditional machine learning classification with deep generative modeling to explore whether a VAE can generate new music samples that retain recognizable genre-specific characteristics.
-
-The final result is both a music generation system and a quantitative evaluation framework for measuring generation quality.
