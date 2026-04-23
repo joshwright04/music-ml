@@ -1,3 +1,6 @@
+.vscode/
+.idea/
+
 generated_songs/*
 !generated_songs/.gitkeep
 
@@ -13,3 +16,4 @@ venv/
 .venv/
 
 data/
+
