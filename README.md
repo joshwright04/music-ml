@@ -8,10 +8,10 @@ This project explores music genre classification using both traditional machine 
 
 The project has two main goals:
 
-1. Train baseline classification models to identify the genre of songs from extracted audio features.
-2. Train a VAE on genre-specific audio samples to generate new songs, then evaluate whether those generated songs preserve genre characteristics by passing them through the baseline classifiers.
+1. Train baseline classification ML models to identify the genre of songs from extracted audio features.
+2. Train a VAE on genre-specific audio samples to generate new 3 second songs snippets, then evaluate whether those generated songs preserve genre characteristics by passing them through the baseline classifiers.
 
-This creates both a generation pipeline and a quantitative evaluation method for generated audio.
+This creates both a generation and a quantitative evaluation method for generated audio.
 
 ---
 
@@ -79,8 +79,6 @@ Generated WAV files
 → Predicted Genre
 ```
 
-If the baseline models classify generated songs as the intended genre (for example, a jazz-trained VAE producing songs classified as jazz), this provides quantitative evidence that the VAE preserved genre-specific structure.
-
 A PNG bar chart is also generated showing baseline model accuracy on generated songs.
 
 ---
@@ -132,7 +130,7 @@ The dataset must be present for the project to run correctly.
 It can be found at:
 [https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification)
 
-Place the zip file from the above link into the `data` folder and unzip it. The final structure should look like this:
+Download and place the zip file from the above link into the `data` folder and unzip it. The final structure should look like this:
 
 ```
 data/
@@ -145,7 +143,7 @@ data/
 
 ---
 
-## Project Structure
+## Overall Project Structure
 
 ```text
 music-ml/
@@ -166,7 +164,7 @@ music-ml/
 │       ├── generate.py
 │       └── utilities/
 │
-├── data/ (*data directory initially empty - See description below for a link to download the GTZAN dataset*)
+├── data/ (*data directory initially empty - See description above for a link to download the GTZAN dataset*)
 │   └── Data/
 |        ...
 │
