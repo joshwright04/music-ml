@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 
-
+# Dataclass VAEConfig as default config values for our vae.
+# Some of these values are changed based on user input in vae_code/main.py.
+# Specifically: epochs and audio_dir 
 @dataclass
 class VAEConfig:
     sr: int = 22050

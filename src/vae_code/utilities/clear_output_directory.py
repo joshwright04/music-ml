@@ -1,6 +1,9 @@
 import os
 
 def clear_output_directory(output_dir: str) -> None:
+    """
+    Clear all files in the output directory output_dir 
+    """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
         return

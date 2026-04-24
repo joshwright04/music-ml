@@ -4,6 +4,11 @@ import numpy as np
 import pandas as pd
 
 def generate_csv(output_dir: str) -> None:
+    """
+    Generate a csv of features in all .wav files in the given directory output_dir
+
+    The specific features are extracted in extract_features()
+    """
     rows = []
 
     for file_name in os.listdir(output_dir):
@@ -23,17 +28,36 @@ def generate_csv(output_dir: str) -> None:
     df.to_csv(output_csv_path, index=False)
 
     print(f"Saved {output_csv_path}")
-    df.to_csv("generated_features.csv", index=False)
-    print("Saved generated_features.csv")
 
 def extract_features(file_path: str) -> dict:
+    """
+    For each .wav file, generate and return a row of the csv using librosa
+
+    The features and order of the csv itself is modeled off of 'features_30_sec.csv' from the GTZAN dataset
+    so that our baseline models can run predictions on the genre label
+
+    Features include:
+    - Chroma features
+    - RMS energy
+    - Spectral centroid
+    - Spectral bandwidth
+    - Spectral rolloff
+    - Zero crossing rate
+    - Harmonic / percussive separation
+    - Tempo
+    - 20 MFCC mean/variance pairs
+
+    """
+    # Load the audio file
     y, sr = librosa.load(file_path, sr=None)
 
     features = {}
 
+    # Basic data
     features["filename"] = os.path.basename(file_path)
     features["length"] = int(len(y))
 
+    # Spectral and frequency-domain features
     chroma = librosa.feature.chroma_stft(y=y, sr=sr)
     rms = librosa.feature.rms(y=y)
     spec_cent = librosa.feature.spectral_centroid(y=y, sr=sr)
@@ -41,11 +65,16 @@ def extract_features(file_path: str) -> dict:
     rolloff = librosa.feature.spectral_rolloff(y=y, sr=sr)
     zcr = librosa.feature.zero_crossing_rate(y)
 
+    # Separate harmonic and percussive content
     harmony, perceptr = librosa.effects.hpss(y)
+
+    # Librosa estimation of tempo
     tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
 
+    # Mel Frequency Cepstral Coefficients
     mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=20)
 
+    # Store mean + variance for each feature group
     features["chroma_stft_mean"] = float(np.mean(chroma))
     features["chroma_stft_var"] = float(np.var(chroma))
 
@@ -72,10 +101,12 @@ def extract_features(file_path: str) -> dict:
 
     features["tempo"] = float(np.squeeze(tempo))
 
+    # Store each mfcc mean and variance
     for i in range(20):
         features[f"mfcc{i+1}_mean"] = float(np.mean(mfcc[i]))
         features[f"mfcc{i+1}_var"] = float(np.var(mfcc[i]))
 
+    # Placeholder label to match GTZAN format
     features["label"] = "generated"
 
     return features
