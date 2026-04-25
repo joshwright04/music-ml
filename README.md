@@ -63,7 +63,7 @@ Users can:
 * Generate multiple songs from the trained latent space
 * Save model weights for future reuse
 
-Generated songs are converted back into `.wav` format using Griffin-Lim inversion.
+Generated songs are converted back into `.wav` format using the Librosa library.
 
 ---
 
